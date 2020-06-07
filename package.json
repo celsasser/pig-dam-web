@@ -1,0 +1,54 @@
+{
+	"author": "Curt Elsasser",
+	"dependencies": {
+		"body-parser": "1.19.0",
+		"express": "4.17.1",
+		"lodash": "4.17.15",
+		"pig-dam-cmd": "0.0.1",
+		"pig-dam-core": "0.0.4"
+	},
+	"description": "Pig DAM's web server architecture.",
+	"devDependencies": {
+		"@types/jest": "25.2.3",
+		"@types/lodash": "4.14.155",
+		"@types/node": "12.12.6",
+		"@types/shortid": "0.0.29",
+		"jest": "26.0.1",
+		"jest-junit": "10.0.0",
+		"pig-dam-core": "0.0.3",
+		"ts-jest": "26.1.0",
+		"tslint": "6.1.2",
+		"typescript": "3.9.5"
+	},
+	"homepage": "https://github.com/celsasser/pig-dam-web.git",
+	"keywords": [
+		"lib",
+		"pig",
+		"server",
+		"web"
+	],
+	"license": "Apache-2.0",
+	"main": "dist/index",
+	"name": "pig-dam-web",
+	"readmeFilename": "README.md",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/celsasser/pig-dam-web.git"
+	},
+	"scripts": {
+		"build": "tsc -p tsconfig.json",
+		"coverage": "npm run test:unit -- --coverage",
+		"jest:reset": "jest --clearCache && rm -rf ./dist",
+		"lint": "npm run lint:src && npm run lint:res",
+		"lint:fix": "npm run lint:src -- --fix && npm run lint:res -- --fix",
+		"lint:res": "tslint --config tslint-res.json \"src/**/*.json\" \"test/**/*.json\" ",
+		"lint:src": "tslint --config tslint.json \"src/**/*.ts\" \"test/**/*.ts\" ",
+		"prepublishOnly": "npm run rebuild && npm run test",
+		"rebuild": "rm -rf ./dist && npm run build",
+		"test": "npm run test:unit && npm run lint",
+		"test:manual": "jest ./test/manual",
+		"test:unit": "jest ./test/unit"
+	},
+	"types": "dist/index",
+	"version": "0.0.1"
+}
