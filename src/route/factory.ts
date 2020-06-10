@@ -4,7 +4,7 @@
  * @license MIT (see project's LICENSE file)
  */
 
-import {NextFunction, Request, Response} from "express";
+import {NextFunction, Request, RequestHandler, Response} from "express";
 import {LogBase} from "pig-dam-core";
 import {MetaRoute} from "../types/route";
 import {CommandHttpRouteHandler} from "./instance";
@@ -32,10 +32,12 @@ export class HttpRouteFactory {
 	 ********************/
 	/**
 	 * Means of defining routes and associating a command with the route
+	 * Returns handler for debugging purposes
 	 */
-	public addHandler<T extends CommandHttpRouteHandler>(route: MetaRoute<T>): void {
+	public addHandler<T extends CommandHttpRouteHandler>(route: MetaRoute<T>): RequestHandler {
 		const handler = this.processRequest.bind(this, route);
 		route.method(route.path, handler);
+		return handler;
 	}
 
 	/********************
@@ -57,13 +59,17 @@ export class HttpRouteFactory {
 				traceId
 			});
 			await command.execute();
-			next();
+			if(next) {
+				next();
+			}
 		} catch(error) {
 			this.logger.error(error, {
 				moduleId: "pig-dam-web",
 				traceId
 			});
-			next(error);
+			if(next) {
+				next(error);
+			}
 		}
 	}
 }

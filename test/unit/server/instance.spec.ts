@@ -6,7 +6,7 @@
 
 import {CommandHttpServer, createHttpConfiguration} from "../../../src/server";
 import {HttpProtocol} from "../../../src/types/http";
-import {createTestLogger} from "../../support/factory/logger";
+import {createTestLogger} from "../../support/factory";
 
 describe("CommandHttpServer", function() {
 	describe("constructor", function() {

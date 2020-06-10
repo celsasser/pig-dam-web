@@ -6,7 +6,11 @@
 
 import {Request, Response} from "express";
 import {CommandHttpRouteHandler} from "../../../src/route";
-import {createTestLogger} from "../../support/factory/logger";
+import {
+	createTestLogger,
+	createTestRequest,
+	createTestResponse
+} from "../../support/factory";
 
 describe("route.instance", function() {
 	describe("CommandHttpRouteHandler", function() {
@@ -14,8 +18,8 @@ describe("route.instance", function() {
 			it("should properly create an instance", function() {
 				const logger = createTestLogger();
 				const path = /path/;
-				const req: Request = {} as Request;
-				const res: Response = {} as Response;
+				const req: Request = createTestRequest();
+				const res: Response = createTestResponse();
 				// @ts-ignore
 				const instance = new CommandHttpRouteHandler({logger, path, req, res,
 					traceId: "urn:dam:trace:id"

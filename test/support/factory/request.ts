@@ -5,8 +5,10 @@
  */
 
 import {Request} from "express";
-import {mock} from "jest-mock-extended";
 
 export function createTestRequest(): Request {
-	return mock<Request>();
+	// flesh it out as needed
+	return {
+		headers: {}
+	} as Request;
 }

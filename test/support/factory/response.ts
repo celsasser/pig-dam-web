@@ -5,8 +5,7 @@
  */
 
 import {Response} from "express";
-import {mock} from "jest-mock-extended";
 
 export function createTestResponse(): Response {
-	return mock<Response>();
+	return {} as Response;
 }
