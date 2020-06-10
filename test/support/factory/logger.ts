@@ -4,12 +4,12 @@
  * @license MIT (see project's LICENSE file)
  */
 
-import {LogBase, LogConsole} from "pig-dam-core";
+import {LogConsole} from "pig-dam-core";
 
 /**
  * Creates a stubbed logger
  */
-export function createTestLogger(): LogBase {
+export function createTestLogger(): jest.Mocked<LogConsole> {
 	const logger = new LogConsole({
 		applicationId: "urn:dam:application:id",
 		environmentId: "urn:dam:environment:id"
@@ -19,5 +19,5 @@ export function createTestLogger(): LogBase {
 	logger.fatal = jest.fn();
 	logger.info = jest.fn();
 	logger.warn = jest.fn();
-	return logger;
+	return logger as jest.Mocked<LogConsole>;
 }

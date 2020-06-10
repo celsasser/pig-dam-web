@@ -4,4 +4,5 @@
  * @license MIT (see project's LICENSE file)
  */
 
+export * from "./factory";
 export * from "./instance";
