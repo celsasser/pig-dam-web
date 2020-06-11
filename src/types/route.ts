@@ -17,10 +17,9 @@ import {CommandHttpRouteHandler} from "../route";
 /**
  * Interface for a constructable route handler command
  */
-export type HttpRouteCommand <T extends CommandHttpRouteHandler> = new ({id, logger, path, req, res, traceId}: {
+export type HttpRouteCommand <T extends CommandHttpRouteHandler> = new ({id, logger, req, res, traceId}: {
 		id?: string,
 		logger: LogBase,
-		path: PathParams,
 		req: Request,
 		res: Response,
 		traceId?: string

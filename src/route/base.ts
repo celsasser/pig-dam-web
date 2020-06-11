@@ -4,7 +4,7 @@
  * @license MIT (see project's LICENSE file)
  */
 
-import {PathParams, Request, Response} from "express-serve-static-core";
+import {Request, Response} from "express";
 import {CommandBase, CommandMetadataType} from "pig-dam-cmd";
 import {LogBase} from "pig-dam-core";
 
@@ -12,22 +12,19 @@ import {LogBase} from "pig-dam-core";
  * Base class for all route commands.
  */
 export abstract class CommandHttpRouteHandler extends CommandBase<void> {
-	public readonly path: PathParams;
 	protected readonly req: Request;
 	protected readonly res: Response;
 	protected readonly logger: LogBase;
 
-	constructor({id, logger, path, req, res, traceId}: {
+	constructor({id, logger, req, res, traceId}: {
 		id?: string,
 		logger: LogBase,
-		path: PathParams,
 		req: Request,
 		res: Response,
 		traceId?: string
 	}) {
 		super({id, traceId});
 		this.logger = logger;
-		this.path = path;
 		this.req = req;
 		this.res = res;
 	}

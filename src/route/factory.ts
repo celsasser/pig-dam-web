@@ -47,13 +47,14 @@ export class HttpRouteFactory {
 	 * Creates a command for the request and executes it.
 	 */
 	private async processRequest<T extends CommandHttpRouteHandler>(route: MetaRoute<T>, req: Request, res: Response, next: NextFunction): Promise<void> {
+		// todo: I would like to create a version of Response with response monitoring. Or a wrapper.
+
 		const traceId: string|undefined = ("traceid" in req.headers)
 			? req.headers.traceid as string
 			: req.headers["trace-id"] as string;
 		try {
 			const command = new route.Command({
 				logger: this.logger,
-				path: route.path,
 				req,
 				res,
 				traceId

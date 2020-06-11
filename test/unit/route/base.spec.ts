@@ -26,7 +26,6 @@ describe("route.instance", function() {
 				});
 				// @ts-ignore
 				expect(instance.logger).toEqual(logger);
-				expect(instance.path).toEqual(path);
 				// @ts-ignore
 				expect(instance.req).toStrictEqual(req);
 				// @ts-ignore
