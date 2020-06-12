@@ -6,8 +6,10 @@
 
 import {Request} from "express";
 
+/**
+ * Returns a Request mock. Mock methods as needed.
+ */
 export function createTestRequest(): Request {
-	// flesh it out as needed
 	return {
 		headers: {}
 	} as Request;

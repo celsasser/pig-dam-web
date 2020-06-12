@@ -5,15 +5,15 @@
  */
 
 import * as _ from "lodash";
-import * as path from "path";
+import {getModulesApplicationPackage} from "pig-dam-core";
 import {CommandHttpRouteHandler} from "./base";
 
 /**
- * Returns information pulled out of the applications package.
+ * Loads package and pulls out some good stuff and sends it back to the client
  */
-export abstract class CommandHttpRouteInformation extends CommandHttpRouteHandler {
+export class CommandHttpRouteInformation extends CommandHttpRouteHandler {
 	protected async _execute(): Promise<void> {
-		const pkg = this.findApplicationPackage();
+		const pkg = getModulesApplicationPackage();
 		this.res.json(_.pick(pkg, [
 			"author",
 			"description",
@@ -21,16 +21,5 @@ export abstract class CommandHttpRouteInformation extends CommandHttpRouteHandle
 			"name",
 			"version"
 		]));
-	}
-
-	/**
-	 * Looks for the applications package and if it can't find it the returns the modules `package.json`
-	 */
-	private findApplicationPackage(): object {
-		if(require.main?.filename) {
-			return require(path.join(path.parse(require.main?.filename).base, "package.json"));
-		} else {
-			return require("../../package.json");
-		}
 	}
 }

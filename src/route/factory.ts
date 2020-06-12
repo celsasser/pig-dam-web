@@ -7,7 +7,7 @@
 import {NextFunction, Request, RequestHandler, Response} from "express";
 import {LogBase} from "pig-dam-core";
 import {MetaRoute} from "../types/route";
-import {CommandHttpRouteHandler} from "./instance";
+import {CommandHttpRouteHandler} from "./base";
 
 /**
  * A factory for both defining routes and creating handlers
@@ -15,8 +15,8 @@ import {CommandHttpRouteHandler} from "./instance";
 export class HttpRouteFactory {
 	/**
 	 * Logger will be used to:
-	 * - log errors
-	 * - passed on to route commands
+	 * - log errors directly
+	 * - be passed on to route commands
 	 */
 	private readonly logger: LogBase;
 
@@ -32,7 +32,7 @@ export class HttpRouteFactory {
 	 ********************/
 	/**
 	 * Means of defining routes and associating a command with the route
-	 * Returns handler for debugging purposes
+	 * Returns handler for debugging purposes. The handler is bound to `this.processRequest`
 	 */
 	public addHandler<T extends CommandHttpRouteHandler>(route: MetaRoute<T>): RequestHandler {
 		const handler = this.processRequest.bind(this, route);
@@ -47,8 +47,6 @@ export class HttpRouteFactory {
 	 * Creates a command for the request and executes it.
 	 */
 	private async processRequest<T extends CommandHttpRouteHandler>(route: MetaRoute<T>, req: Request, res: Response, next: NextFunction): Promise<void> {
-		// todo: I would like to create a version of Response with response monitoring. Or a wrapper.
-
 		const traceId: string|undefined = ("traceid" in req.headers)
 			? req.headers.traceid as string
 			: req.headers["trace-id"] as string;

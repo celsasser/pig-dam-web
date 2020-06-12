@@ -6,6 +6,13 @@
 
 import {Response} from "express";
 
+/**
+ * Returns a partially mocked Response. We add mocks as needed.
+ */
 export function createTestResponse(): Response {
-	return {} as Response;
+	const res: Response = {} as Response;
+	res.json = jest.fn().mockReturnValue(res);
+	res.send = jest.fn().mockReturnValue(res);
+	res.status = jest.fn().mockReturnValue(res);
+	return res;
 }
