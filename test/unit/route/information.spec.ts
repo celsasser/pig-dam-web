@@ -5,7 +5,7 @@
  */
 
 import * as _ from "lodash";
-import {CommandHttpRouteInformation} from "../../../src/route";
+import {CommandHttpRouteInformation} from "../../../src";
 import {
 	createTestLogger,
 	createTestRequest,

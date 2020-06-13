@@ -4,8 +4,7 @@
  * @license MIT (see project's LICENSE file)
  */
 
-import {HttpRouteFactory} from "../../../src/route";
-import {MetaRoute} from "../../../src/types/route";
+import {HttpRouteFactory, MetaRoute} from "../../../src";
 import {
 	CommandHttpRouteTest,
 	createTestLogger,

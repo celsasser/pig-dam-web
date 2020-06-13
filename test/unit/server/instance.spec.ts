@@ -4,8 +4,7 @@
  * @license MIT (see project's LICENSE file)
  */
 
-import {CommandHttpServer, createHttpConfiguration} from "../../../src/server";
-import {HttpProtocol} from "../../../src/types/http";
+import {CommandHttpServer, createHttpConfiguration, HttpProtocol} from "../../../src";
 import {createTestLogger} from "../../support/factory";
 
 describe("CommandHttpServer", function() {

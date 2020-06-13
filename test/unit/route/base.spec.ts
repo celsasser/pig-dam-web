@@ -5,7 +5,7 @@
  */
 
 import {Request, Response} from "express";
-import {CommandHttpRouteHandler} from "../../../src/route";
+import {CommandHttpRouteHandler} from "../../../src";
 import {
 	createTestLogger,
 	createTestRequest,

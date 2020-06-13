@@ -8,10 +8,15 @@ import {Server as HttpServer} from "http";
 import {Server as HttpsServer} from "https";
 
 import {
-	configureBodyParsers, configureRequestLogging, configureRouter,
-	createExpressApplication, createHttpConfiguration, createHttpsConfiguration,
-	createHttpServer, createHttpsServer
-} from "../../../src/server";
+	configureBodyParsers,
+	configureRequestLogging,
+	configureRouter,
+	createExpressApplication,
+	createHttpConfiguration,
+	createHttpsConfiguration,
+	createHttpServer,
+	createHttpsServer
+} from "../../../src";
 
 describe("server.factory", function() {
 	describe("configureBodyParsers", function() {

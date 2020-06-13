@@ -7,7 +7,7 @@
 import {Server} from "net";
 import {CommandBase, CommandMetadataType} from "pig-dam-cmd";
 import {LogBase, PigError} from "pig-dam-core";
-import {HttpProtocol} from "../types/http";
+import {HttpProtocol} from "../types";
 
 /**
  * An express HTTP/HTTPS server

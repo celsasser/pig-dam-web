@@ -6,7 +6,7 @@
 
 import {NextFunction, Request, RequestHandler, Response} from "express";
 import {LogBase} from "pig-dam-core";
-import {MetaRoute} from "../types/route";
+import {MetaRoute} from "../types";
 import {CommandHttpRouteHandler} from "./base";
 
 /**
