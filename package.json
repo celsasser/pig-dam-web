@@ -5,8 +5,8 @@
 		"express": "4.17.1",
 		"lodash": "4.17.15",
 		"morgan": "1.10.0",
-		"pig-dam-cmd": "0.0.2",
-		"pig-dam-core": "0.0.5"
+		"pig-dam-cmd": "0.0.3",
+		"pig-dam-core": "0.0.6"
 	},
 	"description": "Pig DAM's web server architecture.",
 	"devDependencies": {
