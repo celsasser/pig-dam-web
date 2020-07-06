@@ -14,6 +14,7 @@ import * as bodyParser from "body-parser";
 import * as express from "express";
 import * as morgan from "morgan";
 import * as net from "net";
+import {HttpServerConfiguration} from "../types";
 
 export const defaults = {
 	BODY_PARSERS: [
@@ -65,11 +66,7 @@ export function createExpressApplication(): express.Application {
 /**
  * Creates a configuration comprised of defaults with the `http` protocol
  */
-export function createHttpConfiguration(): {
-	application: express.Application,
-	router: express.Router,
-	server: net.Server
-} {
+export function createHttpConfiguration(): HttpServerConfiguration {
 	const application = createExpressApplication();
 	const router = configureRouter(application);
 	const server = createHttpServer(application);
@@ -85,11 +82,7 @@ export function createHttpConfiguration(): {
 /**
  * Creates a configuration comprised of defaults with the `https` protocol
  */
-export function createHttpsConfiguration(): {
-	application: express.Application,
-	router: express.Router,
-	server: net.Server
-} {
+export function createHttpsConfiguration(): HttpServerConfiguration {
 	const application = createExpressApplication();
 	const router = configureRouter(application);
 	const server = createHttpsServer(application);

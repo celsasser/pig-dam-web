@@ -5,7 +5,7 @@
  */
 
 import {NextFunction, Request, RequestHandler, Response} from "express";
-import {LogBase} from "pig-dam-core";
+import {ILog} from "pig-dam-core";
 import {MetaRoute} from "../types";
 import {CommandHttpRouteHandler} from "./base";
 
@@ -18,12 +18,12 @@ export class HttpRouteFactory {
 	 * - log errors directly
 	 * - be passed on to route commands
 	 */
-	private readonly logger: LogBase;
+	private readonly logger: ILog;
 
 	/**
 	 * Constructor
 	 */
-	public constructor(logger: LogBase) {
+	public constructor(logger: ILog) {
 		this.logger = logger;
 	}
 

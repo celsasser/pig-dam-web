@@ -6,7 +6,7 @@
 
 import {Request, Response} from "express";
 import {CommandBase, CommandMetadataType} from "pig-dam-cmd";
-import {LogBase} from "pig-dam-core";
+import {ILog} from "pig-dam-core";
 
 /**
  * Base class for all route commands.
@@ -14,11 +14,11 @@ import {LogBase} from "pig-dam-core";
 export abstract class CommandHttpRouteHandler extends CommandBase<void> {
 	protected readonly req: Request;
 	protected readonly res: Response;
-	protected readonly logger: LogBase;
+	protected readonly logger: ILog;
 
 	constructor({id, logger, req, res, traceId}: {
 		id?: string,
-		logger: LogBase,
+		logger: ILog,
 		req: Request,
 		res: Response,
 		traceId?: string

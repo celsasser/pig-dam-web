@@ -11,7 +11,7 @@ import {
 	Response,
 	Router
 } from "express-serve-static-core";
-import {LogBase} from "pig-dam-core";
+import {ILog} from "pig-dam-core";
 import {CommandHttpRouteHandler} from "../route";
 
 /**
@@ -19,7 +19,7 @@ import {CommandHttpRouteHandler} from "../route";
  */
 export type HttpRouteCommand <T extends CommandHttpRouteHandler> = new ({id, logger, req, res, traceId}: {
 		id?: string,
-		logger: LogBase,
+		logger: ILog,
 		req: Request,
 		res: Response,
 		traceId?: string

@@ -6,7 +6,7 @@
 
 import {Server} from "net";
 import {CommandBase, CommandMetadataType} from "pig-dam-cmd";
-import {LogBase, PigError} from "pig-dam-core";
+import {ILog, PigError} from "pig-dam-core";
 import {HttpProtocol} from "../types";
 
 /**
@@ -22,7 +22,7 @@ export class CommandHttpServer extends CommandBase<void> {
 	 * The heart of our little operation
 	 */
 	public readonly server: Server;
-	private readonly logger: LogBase;
+	private readonly logger: ILog;
 
 	/********************
 	 * Public Interface
@@ -35,7 +35,7 @@ export class CommandHttpServer extends CommandBase<void> {
 		port = 8050
 	}: {
 		id?: string,
-		logger: LogBase,
+		logger: ILog,
 		port?: number,
 		server: Server,
 		traceId?: string
