@@ -17,18 +17,18 @@ import {CommandHttpRouteHandler} from "../route";
 /**
  * Interface for a constructable route handler command
  */
-export type HttpRouteCommand <T extends CommandHttpRouteHandler> = new ({id, logger, req, res, traceId}: {
-		id?: string,
-		logger: ILog,
-		req: Request,
-		res: Response,
-		traceId?: string
-	}) => T;
+export type HttpRouteCommand<T extends CommandHttpRouteHandler> = new ({id, logger, req, res, traceId}: {
+	id?: string,
+	logger: ILog,
+	req: Request,
+	res: Response,
+	traceId?: string
+}) => T;
 
 /**
  * Description of a route that we use in our factory to handle route requests via commands
  */
-export interface MetaRoute <T extends CommandHttpRouteHandler> {
+export interface MetaRoute<T extends CommandHttpRouteHandler> {
 	/**
 	 * Instance of this command will be created to handle the request
 	 */

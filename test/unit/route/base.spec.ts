@@ -17,11 +17,10 @@ describe("route.instance", function() {
 		describe("constructor", function() {
 			it("should properly create an instance", function() {
 				const logger = createTestLogger();
-				const path = /path/;
 				const req: Request = createTestRequest();
 				const res: Response = createTestResponse();
 				// @ts-ignore
-				const instance = new CommandHttpRouteHandler({logger, path, req, res,
+				const instance = new CommandHttpRouteHandler({logger, req, res,
 					traceId: "urn:dam:trace:id"
 				});
 				// @ts-ignore
